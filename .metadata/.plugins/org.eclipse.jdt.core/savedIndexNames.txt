@@ -1,0 +1,8 @@
+INDEX VERSION 1.131+C:\Users\thomastyl\Desktop\Spring_2023\CS_144\Workspace\.metadata\.plugins\org.eclipse.jdt.core
+559670790.index
+4039839903.index
+1126207836.index
+861672641.index
+1865797976.index
+3037072237.index
+3959137331.index

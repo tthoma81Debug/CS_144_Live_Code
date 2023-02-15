@@ -1,0 +1,12 @@
+package mainPackage;
+
+public class Heart 
+{
+	
+	double bloodPressure;
+	double bloodPumpedPerPump;
+	int bpm;
+	boolean isArrest;
+	
+	
+}

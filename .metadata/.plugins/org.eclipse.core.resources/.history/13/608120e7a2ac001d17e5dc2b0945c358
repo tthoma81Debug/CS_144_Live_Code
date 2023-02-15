@@ -1,0 +1,46 @@
+package mainPackage;
+
+public class Lungs 
+{
+	private double currentAirAmount; //in liters
+	private double maxAirCapacity; //in liters
+	
+	Lungs()
+	{
+		currentAirAmount = 0.0;
+	}
+	
+	public void setAirCapacity(double incomingCapacity)
+	{
+		maxAirCapacity = incomingCapacity;
+		//assume ten in most cases
+	}
+	
+	public void setCurrentAir(double incomingAmount)
+	{
+		currentAirAmount = incomingAmount;
+	}
+	
+	public double getCurrentAir()
+	{
+		return currentAirAmount;
+	}
+	
+	public double getCapacity()
+	{
+		return maxAirCapacity;
+	}
+	
+	public void inhale()
+	{
+		currentAirAmount += 5.5;
+	}
+	
+	public void exhale()
+	{
+		currentAirAmount -= 5.5;
+	}
+	
+	
+	
+}

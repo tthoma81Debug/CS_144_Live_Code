@@ -1,0 +1,45 @@
+package mainPackage;
+
+public class Dog 
+{
+	private int age;
+	private String breed;
+	private String color;
+	private String dogName;
+	private int loudness;
+	
+	Dog() //constructor
+	{
+		System.out.println("Dog initialized");
+	}
+	
+	Dog(int incomingAge, String incomingBreed, String incomingColor, String incomingName, int incomingLoudness)
+	{
+		age = incomingAge;
+		breed = incomingBreed;
+		color = incomingColor;
+		dogName = incomingName;
+		loudness = incomingLoudness; 
+	}
+	
+	public void bark(String dogSays)
+	{
+		
+		System.out.println(dogName + " just barked with loudness of " + loudness + " and it says " + dogSays);
+	}
+	
+	public int calmDown()
+	{
+		loudness = loudness - 20;
+		
+		return loudness;
+	}
+	
+	public void run()
+	{
+		System.out.println("The dog of age " + age + " just ran");
+		System.out.println(dogName + " just took off running");
+		System.out.println("The " + color + " " + breed + "jumped over the horrified person who walked by");
+		//System.out.println(dogSays);
+	}
+}

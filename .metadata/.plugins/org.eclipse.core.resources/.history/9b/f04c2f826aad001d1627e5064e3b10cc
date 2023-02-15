@@ -1,0 +1,18 @@
+package mainPackage;
+
+public class Heart 
+{
+	
+	double bloodPressure;
+	double bloodPumpedPerPump = 3.4;
+	int bpm = 1;
+	boolean isArrest = false;
+	double totalBloodPumpedInLife = 1000.0;
+	
+	public void pump()
+	{
+		totalBloodPumpedInLife += (bloodPumpedPerPump * bpm);
+		bpm++;
+	}
+	
+}

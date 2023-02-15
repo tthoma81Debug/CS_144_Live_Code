@@ -1,0 +1,67 @@
+package mainPackage;
+import java.util.Scanner;
+
+
+
+public class ObjectsAndStrings {
+
+	public static void main (String args[])
+	{
+		
+		String exampleText;
+		exampleText = "Hello. Lets play around with \t \"untypable\" \t charactersdsdjfioadsjfioajsiodfajgas,.dfmnjkaehsgkljaowjheitjioqsdhakfnsamldnmgjkhawejisdjfasjhfjasdfhuiashasiodfjo";
+		int dogVolume;
+		
+		int lengthOfString = exampleText.length();
+		//System.out.print(exampleText);
+		//System.out.println("exampleText is " + lengthOfString + " characters long");
+		//System.out.println("The second character of the string is " + exampleText.charAt(1) + " the last character is " + exampleText.charAt(exampleText.length() - 1));
+		
+		//Dog myDog = new Dog();
+		Dog anotherDog = new Dog(5, "German Shepherd", "Black and Tan", "Worlds Largest Puppy", 62);
+		
+		anotherDog.run();
+		
+		anotherDog.bark("woof!");
+		dogVolume = anotherDog.calmDown();
+		System.out.println("dog volume is now " + dogVolume);
+		
+		anotherDog.bark("woof woof");
+		
+		anotherDog.bark("wooooooof!");
+		anotherDog.bark("wooof!");
+		
+		anotherDog.setName("DogSimSpot");
+		System.out.println("The dog's name is now " + anotherDog.getName());
+		
+		anotherDog.pant();
+		anotherDog.pant();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*
+		myDog.age = 5;
+		myDog.color = "Black and Tan";
+		myDog.dogName ="Giant Rodent";
+		myDog.breed = "German Shepherd";
+		myDog.run();
+		myDog.bark(40, "Woof Woof!");
+		*/
+		
+		/*
+		Dog anotherDog = new Dog();
+		anotherDog.age = 1;
+		anotherDog.run();
+		*/
+		
+	}
+
+}
+

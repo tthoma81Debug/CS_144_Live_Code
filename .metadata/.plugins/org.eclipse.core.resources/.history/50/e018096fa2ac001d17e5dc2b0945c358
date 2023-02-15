@@ -1,0 +1,20 @@
+package mainPackage;
+
+public class Lungs 
+{
+	private double currentAirAmount;
+	private double maxAirCapacity;
+	
+	Lungs()
+	{
+		currentAirAmount = 0.0;
+	}
+	
+	public void setAirCapacity(int incomingCapacity)
+	{
+		maxAirCapacity = incomingCapacity;
+	}
+	
+	
+	
+}

@@ -1,0 +1,7 @@
+package mainPackage;
+
+public class Tubes 
+{
+	public int capacity;
+	public int currentAir;
+}
