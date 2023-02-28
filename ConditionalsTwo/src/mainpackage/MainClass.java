@@ -47,7 +47,7 @@ public class MainClass {
 		
 		if(redGood == true && greenGood == true && blueGood == true)
 		{
-			System.out.println("All values valided. Proceeding with operation");
+			System.out.println("All values validated. Proceeding with operation");
 	
 		
 			//test the class. To do that. we need an instance of the class
