@@ -2,6 +2,9 @@ package mainpackage;
 
 import java.util.Scanner;
 
+//printf formatting code: $%,d\n
+
+
 public class Lab_5_3_2 {
 
 	static int wages;
@@ -15,6 +18,8 @@ public class Lab_5_3_2 {
 	static double taxRate;
 	static double additionalTaxQuantity = 0;
 	static double tempTax= 0;
+	static double amountOver;
+	static double taxRefundOrDue; //either tax refund or taxes due
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -35,8 +40,7 @@ public class Lab_5_3_2 {
 			//agi is low enough, fellow poor person
 			//program continues
 			double printAgi = (double)agi;
-			System.out.printf("AGI: $%.2f", printAgi);
-			System.out.println("");
+			System.out.printf("AGI: $%,d\n", agi);
 			
 			//if status is not 1 or 2, it will become 1
 			
@@ -72,12 +76,10 @@ public class Lab_5_3_2 {
 			}
 			
 			double printDeduction = (double)deduction;
-			System.out.printf("Deduction: $%.2f", printDeduction);
-			System.out.println("");
+			System.out.printf("Deduction: $%,d\n", deduction);
 			
 			double printTaxableIncome = (double)taxableIncome;
-			System.out.printf("Taxable Income: $%.2f", printTaxableIncome);
-			System.out.println("");
+			System.out.printf("Taxable Income: $%,d\n", taxableIncome);
 			
 			
 			//calcuating taxes...
@@ -89,30 +91,32 @@ public class Lab_5_3_2 {
 				
 				if(taxableIncome <= 10000)
 				{
-					taxRate = 0.1;
+					taxRate = 0.1;	
+					tempTax = taxableIncome * taxRate;
+					additionalTaxQuantity = 0;
 				}
 				else if(taxableIncome > 10000 && taxableIncome <= 40000)
 				{
+					taxRate = 0.12;
 					additionalTaxQuantity = 1000;
-					double amountOver;
 					amountOver = taxableIncome - 10000;
-					tempTax = amountOver * 0.12;
+					tempTax = amountOver * taxRate;
 					
 				}
 				else if(taxableIncome > 40000 && taxableIncome <= 85000)
 				{
+					taxRate = 0.22;
 					additionalTaxQuantity = 4600;
-					double amountOver;
 					amountOver = taxableIncome - 40000;
-					tempTax = amountOver * 0.22;
+					tempTax = amountOver * taxRate;
 					
 				}
 				else if(taxableIncome > 85000)
 				{
-					additionalTaxQuantity = 14500;
-					double amountOver;
+					taxRate = 0.24;
+					additionalTaxQuantity = 14500;			
 					amountOver = taxableIncome - 85000;
-					tempTax = amountOver * 0.24;
+					tempTax = amountOver * taxRate;
 					
 				}
 				else
@@ -121,26 +125,96 @@ public class Lab_5_3_2 {
 				}
 				
 				
-				//calculate final taxes
-				double finalTax = tempTax + additionalTaxQuantity;
 				
 			}
 			else if(status == 2) 	//for filing status married
 			{
 				//tax calculation
+				
+				//calculate taxable income		
+				taxableIncome = agi - deduction;
+				
+				//set result to 0 if negative
+				if(taxableIncome <= 0)
+				{
+					taxableIncome = 0;
+				}
+				
+			
+				
+				//calculating taxes...
+				
+				//for filing status single
+
+					//tax calculation
+					
+					if(taxableIncome <= 20000)
+					{
+						taxRate = 0.1;	
+						tempTax = taxableIncome * taxRate;
+						additionalTaxQuantity = 0;
+					}
+					else if(taxableIncome > 20000 && taxableIncome <= 80000)
+					{
+						taxRate = 0.12;
+						additionalTaxQuantity = 2000;
+						amountOver = taxableIncome - 20000;
+						tempTax = amountOver * taxRate;
+						
+					}
+					else if(taxableIncome > 40000 && taxableIncome <= 85000)
+					{
+						taxRate = 0.22;
+						additionalTaxQuantity = 4600;
+						amountOver = taxableIncome - 40000;
+						tempTax = amountOver * taxRate;
+						
+					}
+					else if(taxableIncome > 80000)
+					{
+						taxRate = 0.22;
+						additionalTaxQuantity = 9200;			
+						amountOver = taxableIncome - 80000;
+						tempTax = amountOver * taxRate;
+						
+					}
+					else
+					{
+						System.out.println("Error invalid tax bracket");
+					}
+					
+					
+
+			
+			}//end else if status == 2
+			
+			//calculate final taxes
+			double finalTax = tempTax + additionalTaxQuantity;
+			finalTax = Math.round(finalTax);
+			
+			int finalTaxInt = (int)finalTax;
+			
+			//print federal taxes
+			System.out.printf("Federal Tax: $%,d\n", finalTaxInt);
+			
+			//see how much tax is owed
+			taxRefundOrDue = finalTax - taxesWithheld;
+			
+			int taxRefundOrDueInt = (int)taxRefundOrDue;
+			
+			if(taxRefundOrDueInt >= 0)
+			{
+				//then they owe taxes	
+				System.out.printf("Taxes Owed: $%,d\n", taxRefundOrDueInt);
+				
 			}
 			else
 			{
-				System.out.println("Error!");
+				//they owe less tax than was witheld, they get a refund
+				taxRefundOrDueInt = taxRefundOrDueInt * -1; //make it positive for display
+				System.out.printf("Tax Refund: $%,d\n", taxRefundOrDueInt);
+				
 			}
-			
-			
-			
-		
-			
-			
-			
-			
 			
 			
 		} //end if statement for agi <= 120000
