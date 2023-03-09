@@ -35,12 +35,14 @@ public class Lab_5_3_2 {
 		
 		int agi = wages + taxableInterest + unemploymentCompensation;
 		
+		double printAgi = (double)agi;
+		System.out.printf("AGI: $%,d\n", agi);
+		
 		if(agi <= 120000)
 		{
 			//agi is low enough, fellow poor person
 			//program continues
-			double printAgi = (double)agi;
-			System.out.printf("AGI: $%,d\n", agi);
+
 			
 			//if status is not 1 or 2, it will become 1
 			
@@ -79,7 +81,7 @@ public class Lab_5_3_2 {
 			System.out.printf("Deduction: $%,d\n", deduction);
 			
 			double printTaxableIncome = (double)taxableIncome;
-			System.out.printf("Taxable Income: $%,d\n", taxableIncome);
+			System.out.printf("Taxable income: $%,d\n", taxableIncome);
 			
 			
 			//calcuating taxes...
@@ -195,7 +197,7 @@ public class Lab_5_3_2 {
 			int finalTaxInt = (int)finalTax;
 			
 			//print federal taxes
-			System.out.printf("Federal Tax: $%,d\n", finalTaxInt);
+			System.out.printf("Federal tax: $%,d\n", finalTaxInt);
 			
 			//see how much tax is owed
 			taxRefundOrDue = finalTax - taxesWithheld;
@@ -212,7 +214,7 @@ public class Lab_5_3_2 {
 			{
 				//they owe less tax than was witheld, they get a refund
 				taxRefundOrDueInt = taxRefundOrDueInt * -1; //make it positive for display
-				System.out.printf("Tax Refund: $%,d\n", taxRefundOrDueInt);
+				System.out.printf("Tax refund: $%,d\n", taxRefundOrDueInt);
 				
 			}
 			
