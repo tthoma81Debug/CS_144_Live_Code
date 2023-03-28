@@ -21,8 +21,10 @@ public class RockPaperScissors {
 	     
 	     String playerOne;
 	     String playerTwo;
+	     String winningPlayer = "";
+	     String winningChoice = "";
 	     int roundCounter = 0;
-	     boolean breakout = true;
+	     //boolean breakout = true;
 	     
 	     //reads player one and two names from keyboard
 	     playerOne = scnr.next();
@@ -58,7 +60,7 @@ public class RockPaperScissors {
 	     //if they get down here. they have valid number of rounds
 	     //begin game
 	     
-	     
+	     //determining choices or determining/ printing tie
 	     do
 	     {
 	    	 playerOneChoice = rand.nextInt(3); 
@@ -74,6 +76,65 @@ public class RockPaperScissors {
 	     }
 	     while(playerOneChoice == playerTwoChoice);
 	     
+	     
+	     //not a tie. determine winner  
+	     if(playerOneChoice != playerTwoChoice)
+	     {
+	    	  
+	    	 //if player one chose rock and player two chose paper
+	    	 if(playerOneChoice == 0 && playerTwoChoice == 1)
+	    	 {
+	    		 //player two wins
+	    		 winningPlayer = playerTwo;
+	    		 winningChoice = "paper";	 
+	    	 }
+	    	 //player 1 chose rock and player 2 chose scissors
+	    	 else if(playerOneChoice == 0 && playerTwoChoice == 2)
+	    	 {
+	    		 //player 1 wins
+	    		 winningPlayer = playerOne;
+	    		 winningChoice = "rock";
+	    	 }
+	    	 //if player one chose paper and player two chose rock
+	    	 else if(playerOneChoice == 1 && playerTwoChoice == 0)
+	    	 {
+	    		 //player two wins
+	    		 winningChoice = "paper";
+	    		 winningPlayer = playerOne;
+	    	 }
+	    	 //if player one chose paper and player two chose scissors
+	    	 else if(playerOneChoice == 1 && playerTwoChoice == 2)
+	    	 {
+	    		 //player two wins
+	    		 winningChoice = "scissors";
+	    		 winningPlayer = playerTwo;
+	    	 }
+	    	 //if player one chose scissors and player two chose rock
+	    	 else if(playerOneChoice == 2 && playerTwoChoice == 0)
+	    	 {
+	    		 //player 2 wins
+	    		 winningChoice = "rock";
+	    		 winningPlayer = playerTwo;
+	    	 }
+	    	 //player one chose scissors and player two chose paper
+	    	 else if(playerOneChoice == 2 && playerTwoChoice == 1)
+	    	 {
+	    		//player one wins 
+	    		 winningChoice = "scissors";
+	    		 winningPlayer = playerOne;
+	    	 }
+	    	 else
+	    	 {
+	    		 //should never happen. included for good practice
+	    		 System.out.println("Error in determing winner");
+	    	 }
+	    	 
+	    	 
+	    	 //print winner
+	    	 System.out.println(winningPlayer + " wins with " + winningChoice);
+
+	    	
+	     }
 	     
 	     
 	     
