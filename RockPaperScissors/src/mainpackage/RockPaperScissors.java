@@ -8,23 +8,21 @@ public class RockPaperScissors {
 	public static void main(String[] args) 
 	{
 		 Scanner scnr = new Scanner(System.in);
-	     final int ROCK = 0;
-	     final int PAPER = 1;
-	     final int SCISSORS = 2;
 	     Random rand = new Random();
 	     int seed = scnr.nextInt();
 	     rand.setSeed(seed);
 	     int playerOneChoice;
 	     int playerTwoChoice;
+	     int numberOfWinsPlayerOne = 0;
+	     int numberOfWinsPlayerTwo = 0;
 	      
-	      /* Insert your code here */
 	     
 	     String playerOne;
 	     String playerTwo;
 	     String winningPlayer = "";
 	     String winningChoice = "";
 	     int roundCounter = 0;
-	     //boolean breakout = true;
+
 	     
 	     //reads player one and two names from keyboard
 	     playerOne = scnr.next();
@@ -58,20 +56,26 @@ public class RockPaperScissors {
 	     
 	     System.out.println(playerOne + " vs " + playerTwo + " for " + roundCounter + " rounds");
 	     //if they get down here. they have valid number of rounds
+	     
 	     //begin game
 	     
+	     
+	     //while(continueGame == true)
+	     for(int i = 1 ;i <= roundCounter; i++) //ideal loop choice for this problem
+	     {
 	     //determining choices or determining/ printing tie
 	     do
 	     {
 	    	 playerOneChoice = rand.nextInt(3); 
 	    	 playerTwoChoice = rand.nextInt(3);
 	    	 
-	    	 System.out.println("player one got " + playerOneChoice);
-	    	 System.out.println("player two got " + playerTwoChoice);
+	    	//uncomment the below lines if debugging
+	    	//System.out.println("player one got " + playerOneChoice);
+	    	//System.out.println("player two got " + playerTwoChoice);
 	    	 
 	    	 if(playerOneChoice == playerTwoChoice)
 	    	 {
-	    		 System.out.println("Tie!");
+	    		 System.out.println("Tie");
 	    	 }
 	     }
 	     while(playerOneChoice == playerTwoChoice);
@@ -130,62 +134,27 @@ public class RockPaperScissors {
 	    	 }
 	    	 
 	    	 
+	    	 if(winningPlayer.equals(playerOne))
+	    	 {
+	    		 numberOfWinsPlayerOne++;
+	    	 }
+	    	 else if(winningPlayer.equals(playerTwo))
+	    	 {
+	    		 numberOfWinsPlayerTwo++;
+	    	 }
+	    	 
+	    	 
+	    	 
 	    	 //print winner
 	    	 System.out.println(winningPlayer + " wins with " + winningChoice);
 
-	    	
-	     }
+	     } 
 	     
 	     
-	     
-	     
-	     
-	     /* this works
-	     while(breakout == true)
-	     {
-	    	 //run game
-	    	 
-	    	 if(roundCounter > 0)
-	    	 {
-	    		 System.out.println("Rounds is valid. Begin game");
-	    		 breakout = false;
-	    	 }
-	    	 else
-	    	 {
-	    		 System.out.println("Rounds must be > 0");
-	    		 roundCounter = scnr.nextInt();
-	    	 }  
-	     }
-	     
-	     */
-	     
-	     
-	     
-	     
-	     
-	     /*
-	     else
-	     {
-	    	 //display error
-	    	 while(roundCounter < 1)
-	    	 {
-	    		 if(roundCounter < 1)
-	    		 {
-	    			 roundCounter = scnr.nextInt();
-	    			 break;
-	    		 }
-	    		 else
-	    		 {
-	    			 System.out.println("Rounds must be > 0");
-	    		 }
-	    		
-	    	 }
-	    	 
-	    	 
-	     }
-	     
-	     */
-
+	   }//end loop
+	    
+	   System.out.println(playerOne + " wins " + numberOfWinsPlayerOne + " and " + playerTwo + " wins " + numberOfWinsPlayerTwo);
+	   scnr.close();
 	}
 
 }
