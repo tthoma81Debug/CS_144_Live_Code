@@ -1,9 +1,14 @@
 package mainpackage;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.InputMismatchException;
 //import java.io.File;
 //import java.io.FileNotFoundException;
 //import java.io.PrintWriter;
 import java.util.Random;
+import java.util.Scanner;
 
 public class MainClass {
 
@@ -21,12 +26,105 @@ public class MainClass {
 	}
 	*/
 	
-	public static void main(String[] args)
+	/*
+	public static void createFile() throws FileNotFoundException //throws a fit (exception)
+	{
+		PrintWriter outfile = new PrintWriter (new File("filename"));
+	}
+	*/
+	
+	
+	public static void convertNumber() throws InputMismatchException
+	{
+		Scanner scnr = new Scanner(System.in);
+		System.out.println("Please enter a number and definitely not a string");
+		int enteredNumber;
+		enteredNumber = scnr.nextInt();
+		
+		System.out.println("you entered " + enteredNumber);
+	}
+	
+	
+	public static void main(String[] args) throws FileNotFoundException
 	{
 		
 		
+		System.out.println("making a file");
+		
+		//creates an object of type File that can "hold" a file
+		File theFile = new File("Stuff_Files_Here\\Oh_Look_A_File.txt");
+		
+		//creates an object of type PrintWriter that can write actual files
+		PrintWriter outFile = new PrintWriter(theFile);
+		outFile.println("Dont make me count to 5,000,000");
+		for(int i = 1; i <= 5000000; i++)
+		{
+		
+			//When combined with the PrintWriter and a println statement, this line creates new files in the directory. Use with caution.
+			//File theFile = new File("Stuff_Files_Here\\Oh_Look_A_File" + i + ".txt");
+
+			outFile.println(i);
+		}
+		
+		//outFile.println("Here is a line in the file");
+		//outFile.println("here is another line");
 		
 		
+		
+		
+		//close the output stream
+		outFile.close();
+		
+	
+		
+		
+		
+		
+		
+
+		/*
+		boolean humanCooperated = false;
+		while(humanCooperated == false)
+		{
+		
+		try
+		{
+			convertNumber();
+			humanCooperated = true;
+		}
+		catch(InputMismatchException e)
+		{
+			System.out.println("You think this is funny dont you?....");
+			System.out.println("You are busted");
+			System.out.println("I'm telling the ai on you");
+			
+			System.out.println("This is what you wanted to see. Right?");
+			e.printStackTrace();
+			
+			System.out.println("But you know. I'm still running, and still logging stuff");
+			System.out.println("Lets try that again");
+			
+			
+			
+		}
+		
+		}
+		
+		/*
+		try //handling the fit (exeption)
+		{
+			createFile();
+		}
+		catch(Exception e)
+		{
+			//does nothing, (but doesn't crash)
+			System.out.println("Uh oh. We just had an exception. hang tight...");
+			e.printStackTrace();
+		}
+		
+		*/
+		
+		/*
 		Random draw = new Random(); 
 		int firstPlayerRoll;
 		int secondPlayerRoll;
@@ -199,6 +297,8 @@ public class MainClass {
 			return PlayingCard.ACE;
 		}
 		*/
+		
+		
 		
 	}
 	
