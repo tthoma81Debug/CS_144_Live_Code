@@ -2,6 +2,8 @@ package mainpackage;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.InputMismatchException;
 //import java.io.File;
@@ -45,39 +47,72 @@ public class MainClass {
 	}
 	
 	
-	public static void main(String[] args) throws FileNotFoundException
+	public static void main(String[] args) throws FileNotFoundException, IOException
 	{
 		
 		
 		System.out.println("making a file");
 		
 		//creates an object of type File that can "hold" a file
-		File theFile = new File("Stuff_Files_Here\\Oh_Look_A_File.txt");
+		//File theFile = new File("Stuff_Files_Here\\Oh_Look_A_File.txt");
+		
+	
+		//FileWriter theFile = new FileWriter("Stuff_Files_Here\\Oh_Look_A_File.txt", true);
 		
 		//creates an object of type PrintWriter that can write actual files
+		//PrintWriter outFile = new PrintWriter(theFile);
+		
+		/*
 		PrintWriter outFile = new PrintWriter(theFile);
+		
 		outFile.println("Dont make me count to 5,000,000");
+		
+		
 		for(int i = 1; i <= 5000000; i++)
 		{
-		
+			
 			//When combined with the PrintWriter and a println statement, this line creates new files in the directory. Use with caution.
 			//File theFile = new File("Stuff_Files_Here\\Oh_Look_A_File" + i + ".txt");
 
 			outFile.println(i);
 		}
 		
+		
+		outFile.println("Phew....that was a lot of counting. Care to count again?");
+		
 		//outFile.println("Here is a line in the file");
 		//outFile.println("here is another line");
 		
+		//outFile.close();
+*/
+		//open file for reading
+		File fileToRead = new File("Stuff_Files_Here\\Oh_Look_A_File.txt");
+		Scanner inFile = new Scanner(fileToRead);
 		
+		long sum = 0;
+		long nextVariable;
 		
+		while(inFile.hasNext())
+		{
+			
+			try 
+			{
+				nextVariable = inFile.nextLong();
+				System.out.println("Just read " + nextVariable);
+				sum += nextVariable;
+				System.out.println("Sum is now " + sum);
+			}
+			catch(InputMismatchException e)
+			{
+				System.out.println("Current line is not a number");
+				inFile.nextLine();
+			}
+		}
 		
-		//close the output stream
-		outFile.close();
+		//System.out.println("The next line in the file is: ");
+		//System.out.println(inFile.nextLine());
 		
-	
-		
-		
+		inFile.close();
 		
 		
 		
