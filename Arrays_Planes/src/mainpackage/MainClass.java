@@ -19,11 +19,14 @@ public class MainClass {
 		int fourthPlaneWeight;
 		int fifthPlaneWeight;
 		
+		final int carrierPlaneCapacity = 85;
+		
 		int carrierWeightCapacity = 105000; //105,000 tons
 		int weightOfAllPlanes = 0;
 		
 		//better way
-		int[] planeWeight = new int[85];
+		int[] planeWeight = new int[carrierPlaneCapacity];
+		String [] nameOfAllPlanes = new String[carrierPlaneCapacity];
 		
 		
 		
@@ -73,7 +76,7 @@ public class MainClass {
 		*/
 		
 		//this will generate weight for each plane
-		for(int i = 0; i < 85; i ++)
+		for(int i = 0; i < carrierPlaneCapacity; i ++)
 		{
 			//System.out.println("Please enter the weight for plane number " + i);
 			//the awsesome part
@@ -89,14 +92,19 @@ public class MainClass {
 		
 		//now lets print all the weights in the array
 		
-		for(int i = 0; i < 85; i++)
+		for(int i = 0; i < carrierPlaneCapacity; i++)
 		{
 			System.out.println("The weight of plane " + i + " is " + planeWeight[i]);
 		}
 		
+		
+
+		
+		
+		
 		//lets see if carrier is over capacity
 		
-		for(int i = 0; i < 85; i++)
+		for(int i = 0; i < carrierPlaneCapacity; i++)
 		{
 			weightOfAllPlanes += planeWeight[i]; //adds up total weight of all planes
 		}
@@ -115,6 +123,57 @@ public class MainClass {
 			
 		}
 		
+		
+		//average weight of a plane
+		weightOfAllPlanes = 0;
+		for(int i = 0; i < carrierPlaneCapacity; i ++)
+		{
+			//weight of all planes already calculated
+			//put here for reference
+			weightOfAllPlanes += planeWeight[i]; //adds up total weight of all planes
+		}
+		int averagePlaneWeight = weightOfAllPlanes / planeWeight.length;
+		
+		System.out.println("Average plane weight is " + averagePlaneWeight);
+		
+		
+		
+		
+		
+		//find the plane with the least weight
+		
+		int smallestWeight = planeWeight[0];
+		int spotInCarrier = 0;
+		
+		for(int i = 1; i < carrierPlaneCapacity; i++)
+		{
+			if(planeWeight[i] < smallestWeight)
+			{
+				smallestWeight = planeWeight[i];
+				spotInCarrier = i;
+			}
+		}
+		
+		System.out.println("The smallest plane weighs " + smallestWeight);
+		System.out.println("And it is at spot " + spotInCarrier);
+		
+		
+		//find the plane with the least weight
+		
+		int largestWeight = planeWeight[0];
+		int spotOfLargestInCarrier = 0;
+		
+		for(int i = 1; i < carrierPlaneCapacity; i++)
+		{
+			if(planeWeight[i] > largestWeight)
+			{
+				largestWeight = planeWeight[i];
+				spotOfLargestInCarrier = i;
+			}
+		}
+		
+		System.out.println("The largest plane weighs " + largestWeight);
+		System.out.println("And it is at spot " + spotOfLargestInCarrier);
 
 		
 	}
