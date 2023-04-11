@@ -1,8 +1,12 @@
 package mainpackage;
 
 import java.util.Scanner;
+import java.util.Random;
 
 public class MainClass {
+	
+	
+	public static Random weightGenerator = new Random();
 
 	public static void main(String[] args) 
 	{
@@ -20,6 +24,9 @@ public class MainClass {
 		
 		//better way
 		int[] planeWeight = new int[85];
+		
+		
+		
 		
 		Scanner scnr = new Scanner(System.in);
 		
@@ -55,12 +62,28 @@ public class MainClass {
 		
 		*/
 		
-		//awesome way
+		//awesome way....but comes from user so very slow
+		/*
 		for(int i = 0; i < 85; i ++)
 		{
 			System.out.println("Please enter the weight for plane number " + i);
 			//the awsesome part
 			planeWeight[i] = scnr.nextInt();
+		}
+		*/
+		
+		//this will generate weight for each plane
+		for(int i = 0; i < 85; i ++)
+		{
+			//System.out.println("Please enter the weight for plane number " + i);
+			//the awsesome part
+			//planeWeight[i] = scnr.nextInt();
+			
+			//weightGenerator();
+			
+			//will fill entire array
+			planeWeight[i] = weightGenerator();
+			
 		}
 		
 		
@@ -94,6 +117,16 @@ public class MainClass {
 		
 
 		
+	}
+	
+	
+	public static int weightGenerator()
+	{
+
+		int weight;
+		weight = weightGenerator.nextInt(50) + 1;
+		
+		return weight;
 	}
 
 }
