@@ -6,7 +6,7 @@ import java.util.Random;
 public class MainClass {
 	
 	
-	public static Random weightGenerator = new Random();
+	public static Random randGenerator = new Random();
 
 	public static void main(String[] args) 
 	{
@@ -26,6 +26,15 @@ public class MainClass {
 		
 		//better way
 		int[] planeWeight = new int[carrierPlaneCapacity];
+		double[] planeFuelPercent = new double[carrierPlaneCapacity];
+		
+		double[][] hullIntegrity = new double[85][85];
+		
+		
+		
+		
+		
+		
 		String [] nameOfAllPlanes = new String[carrierPlaneCapacity];
 		
 		
@@ -89,12 +98,56 @@ public class MainClass {
 			
 		}
 		
+		//this will generate fuel for each plane
+		for(int i = 0; i < carrierPlaneCapacity; i++)
+		{
+			planeFuelPercent[i] = fuelGenerator();		
+		}
+		
+		//this will generate hull integrity
+		//for every row
+		for(int i = 0; i < carrierPlaneCapacity; i++)
+		{
+			
+			//for loop to drop down to next row
+			//for every column
+			for(int j = 0; j < carrierPlaneCapacity; j++)
+			{
+				
+				hullIntegrity[i][j] = fuelGenerator();
+			}
+	
+		}
+		
+		for(int i = 0; i < carrierPlaneCapacity; i++)
+		{
+			
+			//for loop to drop down to next row
+			//for every column
+			for(int j = 0; j < carrierPlaneCapacity; j++)
+			{
+				
+				System.out.println( "row " + i + " column " + j + " " +  hullIntegrity[i][j]);
+			}
+	
+		}
+		
+		/*
+		if(i > carrierPlaneCapacity)
+		{
+			i = planeFuelPercent.length;
+			break;
+		}
+		*/
 		
 		//now lets print all the weights in the array
 		
 		for(int i = 0; i < carrierPlaneCapacity; i++)
 		{
 			System.out.println("The weight of plane " + i + " is " + planeWeight[i]);
+			
+			//coolness of parallel arrays
+			System.out.println("This plane has " + planeFuelPercent[i] + " percent fuel remaining");
 		}
 		
 		
@@ -122,6 +175,20 @@ public class MainClass {
 			System.out.println("Hope you've got a few billion handy for the planes");
 			
 		}
+		
+		
+		
+		
+		
+		
+		
+		  if(planeWeight[0] > planeFuelPercent[0])
+		  {
+			  System.out.println("plane weight is larger than its fuel percentage");
+		  }
+		 
+		
+		
 		
 		
 		//average weight of a plane
@@ -183,9 +250,18 @@ public class MainClass {
 	{
 
 		int weight;
-		weight = weightGenerator.nextInt(50) + 1;
+		weight = randGenerator.nextInt(50) + 1;
 		
 		return weight;
+	}
+	
+	public static double fuelGenerator()
+	{
+
+		double fuel;
+		fuel = randGenerator.nextDouble(100);
+		
+		return fuel;
 	}
 
 }
