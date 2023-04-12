@@ -1,4 +1,4 @@
-rank,service_number,first_name,last_name,date_of_birth,country,aircraft_type,flight_hours,flight_missions,flight_awards
+rank,service_number,first_name,last_name,date_of_award,country,aircraft_type,flight_hours,flight_missions,flight_awards
 Major,3956946,Elsi,Samett,6/15/2022,Brazil,A-10,9751,608,Air Force Commendation Medal
 Private,7450386,Olav,Smithson,4/4/2023,China,A-10,4330,352,Air Medal
 Lieutenant,4133509,Thorin,Dineges,12/31/2022,Indonesia,A-10,9695,869,Distinguished Flying Cross
