@@ -26,9 +26,29 @@ public class MainClass {
 		
 		//better way
 		planeWeight = new int[carrierPlaneCapacity];
-		double[] planeFuelPercent = new double[carrierPlaneCapacity];
-		
+		double[] planeFuelPercent = new double[carrierPlaneCapacity];	
 		double[][] hullIntegrity = new double[85][85];
+		
+		Plane[] planes = new Plane[carrierWeightCapacity];
+		
+		//fill up the carrier
+		
+		for(int i = 0; i < carrierPlaneCapacity; i++)
+		{
+			Plane newPlane = new Plane();
+			planes[i] = newPlane;		
+		}
+		
+		int planeWeightTotal = 0;
+		int totalCannonRounds = 0;
+		
+		for(int i = 0; i < carrierPlaneCapacity; i++)
+		{
+			planeWeightTotal += planes[i].getWeight();
+			totalCannonRounds += planes[i].planeArmaments[0].capacity;
+		}
+		
+		System.out.println("The total weight of all planes on the carrier is " + planeWeightTotal);
 		
 		
 		
@@ -127,7 +147,7 @@ public class MainClass {
 			for(int j = 0; j < carrierPlaneCapacity; j++)
 			{
 				
-				System.out.println( "row " + i + " column " + j + " " +  hullIntegrity[i][j]);
+				//System.out.println( "row " + i + " column " + j + " " +  hullIntegrity[i][j]);
 			}
 	
 		}
@@ -144,10 +164,10 @@ public class MainClass {
 		
 		for(int i = 0; i < carrierPlaneCapacity; i++)
 		{
-			System.out.println("The weight of plane " + i + " is " + planeWeight[i]);
+			//System.out.println("The weight of plane " + i + " is " + planeWeight[i]);
 			
 			//coolness of parallel arrays
-			System.out.println("This plane has " + planeFuelPercent[i] + " percent fuel remaining");
+			//System.out.println("This plane has " + planeFuelPercent[i] + " percent fuel remaining");
 		}
 		
 		
@@ -162,17 +182,17 @@ public class MainClass {
 			weightOfAllPlanes += planeWeight[i]; //adds up total weight of all planes
 		}
 		
-		System.out.println("The total weight of the planes is " + weightOfAllPlanes);
+		//System.out.println("The total weight of the planes is " + weightOfAllPlanes);
 		
 		if(weightOfAllPlanes > carrierWeightCapacity)
 		{
-			System.out.println("uh oh. Carrier is " + (weightOfAllPlanes - carrierWeightCapacity) + " over capacity");
-			System.out.println("Might be a good idea to lose some planes. Just, you know, officially and all that");
+			//System.out.println("uh oh. Carrier is " + (weightOfAllPlanes - carrierWeightCapacity) + " over capacity");
+			//System.out.println("Might be a good idea to lose some planes. Just, you know, officially and all that");
 		}
 		else
 		{
-			System.out.println("You can put " + (carrierWeightCapacity - weightOfAllPlanes) + " more tons on that carrier");
-			System.out.println("Hope you've got a few billion handy for the planes");
+			//System.out.println("You can put " + (carrierWeightCapacity - weightOfAllPlanes) + " more tons on that carrier");
+			//System.out.println("Hope you've got a few billion handy for the planes");
 			
 		}
 		
@@ -184,7 +204,7 @@ public class MainClass {
 		
 		  if(planeWeight[0] > planeFuelPercent[0])
 		  {
-			  System.out.println("plane weight is larger than its fuel percentage");
+			  //System.out.println("plane weight is larger than its fuel percentage");
 		  }
 		 
 		
@@ -201,7 +221,7 @@ public class MainClass {
 		}
 		int averagePlaneWeight = weightOfAllPlanes / planeWeight.length;
 		
-		System.out.println("Average plane weight is " + averagePlaneWeight);
+		//System.out.println("Average plane weight is " + averagePlaneWeight);
 		
 		
 		
@@ -221,8 +241,8 @@ public class MainClass {
 			}
 		}
 		
-		System.out.println("The smallest plane weighs " + smallestWeight);
-		System.out.println("And it is at spot " + spotInCarrier);
+		//System.out.println("The smallest plane weighs " + smallestWeight);
+		//System.out.println("And it is at spot " + spotInCarrier);
 		
 		
 		//find the plane with the least weight
@@ -239,14 +259,14 @@ public class MainClass {
 			}
 		}
 		
-		System.out.println("The largest plane weighs " + largestWeight);
-		System.out.println("And it is at spot " + spotOfLargestInCarrier);
+		//System.out.println("The largest plane weighs " + largestWeight);
+		//System.out.println("And it is at spot " + spotOfLargestInCarrier);
 		
 		
 		
 		
 		
-		System.out.println("Begin findWeights function output");
+		//System.out.println("Begin findWeights function output");
 		int[] largePlaneParking = new int[85];
 		int[] foundLargePlanes = findWeights(planeWeight, largePlaneParking);
 		
@@ -254,8 +274,22 @@ public class MainClass {
 		
 		for(int i = 0; i < foundLargePlanes.length; i++)
 		{
-			System.out.println("Large plane at position " + i + " has a weight of  " + foundLargePlanes[i] + " tons");
+			//System.out.println("Large plane at position " + i + " has a weight of  " + foundLargePlanes[i] + " tons");
+			//System.out.println("And this plane is in parking spot " + largePlaneParking[i]);
 		}
+		
+		
+		
+		
+		Plane firstPlane = new Plane();
+		firstPlane.getWeight();
+		
+		
+		
+		
+		
+		
+		
 
 		
 	}
@@ -282,7 +316,6 @@ public class MainClass {
 	public static int[] findWeights(int[] arrayToSearch, int[]largePlaneParkingSpots)
 	{
 		int[] largePlanes = new int[85];
-		//int[] largePlaneParkingSpots = new int[85];
 		int currentSpot = 0;
 		
 		for(int i = 0; i < 85; i++)
