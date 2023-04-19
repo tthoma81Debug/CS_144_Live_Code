@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   public static void main(String[] args) {
+      Scanner scnr = new Scanner(System.in);
+      
+      int speed = 0;
+      int speedLimit = 0;
+      int ticketPrice = 0;
+      
+      speedLimit = scnr.nextInt();
+      speed = scnr.nextInt();
+      
+      if(speed <= (speedLimit - 10))
+      {
+         ticketPrice = 50;
+      }
+      else if((speed - speedLimit) >= 6)
+      {
+         ticketPrice = 75;
+         
+         if((speed - speedLimit) >=21)
+         {
+            ticketPrice = 150;
+         } 
+         
+         if((speed - speedLimit) > 40 )
+         {
+            ticketPrice = 300;
+         }
+         
+      }
+  
+         System.out.println(ticketPrice);
+     
+      
+
+
+      /* Type your code here. */
+   }
+}
