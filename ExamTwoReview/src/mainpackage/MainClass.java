@@ -19,10 +19,10 @@ public class MainClass {
 		 */
 		Scanner scnr = new Scanner(System.in);
 		
-		//System.out.println("Enter a day number");
-		//int dayNum = scnr.nextInt();
+		System.out.println("Enter a day number");
+		int dayNum = scnr.nextInt();
 		String dayName = "";
-		int dayNum =0;
+
 		switch(dayNum)
 		{
 		case 1: 
@@ -52,7 +52,7 @@ public class MainClass {
 		
 		}
 		
-		//System.out.println("The day of the week you entered is " + dayName);
+		System.out.println("The day of the week you entered is " + dayName);
 		
 		
 		//loops
