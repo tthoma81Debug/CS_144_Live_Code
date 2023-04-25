@@ -1,5 +1,7 @@
 package mainpackage;
 
+import java.util.Random;
+
 public class Plane 
 {
 	private int weight;
@@ -12,6 +14,7 @@ public class Plane
 	private String landingGearType;
 	private String designation; //f18c/f35b etc
 	private double price;
+	public int planeIDNum;
 	
 	public Ordinance planeArmaments[];
 	
@@ -30,7 +33,16 @@ public class Plane
 		price =  65000000;	
 		planeArmaments = new Ordinance[3];
 		
+		
+		Random generator = new Random();
+		planeIDNum = generator.nextInt(1000);
+		
+		
+		
+		
 	}
+	
+	
 	
 	private void configureOrdinance()
 	{
