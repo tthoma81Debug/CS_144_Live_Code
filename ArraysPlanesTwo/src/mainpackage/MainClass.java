@@ -11,6 +11,7 @@ public class MainClass {
 	public static final int planeCapacity = 1000;
 	public static Plane[] thePlanes = new Plane[planeCapacity]; //makes an array capable of holding 100 planes
 	private static int pilotCounter = 0;
+	private static int planeSearchingFor = 4;
 	
 	
 	public static void main(String[] args)
@@ -54,7 +55,7 @@ public class MainClass {
 		
 		
 		//lets try to find a plane with a specific id
-		Plane planeWeFound = searchForPlane(thePlanes, 4);
+		Plane planeWeFound = searchForPlane(thePlanes, planeSearchingFor);
 		
 		if(planeWeFound.planeIDNum == -1)
 		{
@@ -118,9 +119,15 @@ public class MainClass {
 		
 		
 		
-		Plane foundPlane = searchForPlane(thePlanes, 4);
-		Pilot pilotOfPlane = foundPlane.assignedPilot;
-		printPilotData(pilotOfPlane);
+
+		//if we found the plane
+		if(planeWeFound.planeIDNum != -1)
+		{
+			//refer to the pilot
+			Pilot pilotOfPlane = planeWeFound.assignedPilot;
+			//and print his/her data
+			printPilotData(pilotOfPlane);
+		}
 		
 		
 		
