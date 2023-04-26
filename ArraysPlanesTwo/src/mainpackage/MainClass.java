@@ -2,6 +2,8 @@ package mainpackage;
 
 import java.util.Scanner;
 import java.util.Random;
+import java.io.File;  // Import the File class
+import java.io.FileNotFoundException;  // Import this class to handle errors
 
 public class MainClass {
 	
@@ -9,7 +11,7 @@ public class MainClass {
 	public static final int planeCapacity = 1000;
 	public static Plane[] thePlanes = new Plane[planeCapacity]; //makes an array capable of holding 100 planes
 	
-	public static void main(String[] args) 
+	public static void main(String[] args)
 	{
 		
 		//fill up the carrier
@@ -61,6 +63,32 @@ public class MainClass {
 			System.out.println("Plane found! " + " its weight is " + planeWeFound.getWeight());
 		}
 				
+		
+		
+		//read file
+		try 
+		{
+		    File myObj = new File("MOCK_DATA.csv");
+		    Scanner myReader = new Scanner(myObj);
+		    while (myReader.hasNextLine()) 
+		    {
+		        String data = myReader.nextLine();
+		        String[] splitData = data.split(",");  
+		       //System.out.println(splitData[0]);
+		        
+		        
+		        
+		        
+		        //System.out.println(data);
+		    }
+		      myReader.close();
+		    } 
+		    catch (FileNotFoundException e) 
+			{
+		      System.out.println("An error occurred.");
+		      e.printStackTrace();
+			}
+		
 		
 		
 		
