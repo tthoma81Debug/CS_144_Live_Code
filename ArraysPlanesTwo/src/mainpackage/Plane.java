@@ -12,11 +12,13 @@ public class Plane
 	private int range;
 	private double maxSpeed;
 	private String landingGearType;
-	private String designation; //f18c/f35b etc
+	public String designation; //f18c/f35b etc
 	private double price;
 	public int planeIDNum;
 	
 	public Ordinance planeArmaments[];
+	
+	public Pilot assignedPilot;
 	
 	
 	Plane()
