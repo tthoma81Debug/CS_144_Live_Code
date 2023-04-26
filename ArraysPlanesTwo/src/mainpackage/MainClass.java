@@ -11,8 +11,6 @@ public class MainClass {
 	
 	public static void main(String[] args) 
 	{
-		AudioTest example = new AudioTest();
-		example.playSound();
 		
 		//fill up the carrier
 		for(int i = 0; i < planeCapacity; i++)
