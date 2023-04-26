@@ -10,6 +10,8 @@ public class MainClass {
 	
 	public static final int planeCapacity = 1000;
 	public static Plane[] thePlanes = new Plane[planeCapacity]; //makes an array capable of holding 100 planes
+	private static int pilotCounter = 0;
+	
 	
 	public static void main(String[] args)
 	{
@@ -76,7 +78,30 @@ public class MainClass {
 		        String[] splitData = data.split(",");  
 		       //System.out.println(splitData[0]);
 		        
+		         
+		        Pilot nextPilot = new Pilot();
+		       //should read data and add it to the nextPilot
+
+		        nextPilot.rank = splitData[0];
+		        nextPilot.service_number = Integer.parseInt(splitData[1]);
+		        nextPilot.first_name = splitData[2];
+		        nextPilot.last_name = splitData[3];
+		        nextPilot.dateOfAward = splitData[4];
+		        nextPilot.country = splitData[5];
+		        nextPilot.aircraft_type = splitData[6];
+		        nextPilot.flight_hours = Integer.parseInt(splitData[7]);
+		        nextPilot.flight_missions = Integer.parseInt(splitData[8]);
+		        nextPilot.flight_awards = splitData[9];
 		        
+		        //assign pilot to plane
+		        thePlanes[pilotCounter].assignedPilot = nextPilot;
+		        pilotCounter++;
+		        
+		        System.out.println(thePlanes[0].assignedPilot.rank);
+		        
+		        
+		        
+
 		        
 		        
 		        //System.out.println(data);
