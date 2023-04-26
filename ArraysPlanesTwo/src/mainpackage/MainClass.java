@@ -72,6 +72,7 @@ public class MainClass {
 		{
 		    File myObj = new File("MOCK_DATA.csv");
 		    Scanner myReader = new Scanner(myObj);
+		    myReader.nextLine();
 		    while (myReader.hasNextLine()) 
 		    {
 		        String data = myReader.nextLine();
@@ -97,7 +98,7 @@ public class MainClass {
 		        thePlanes[pilotCounter].assignedPilot = nextPilot;
 		        pilotCounter++;
 		        
-		        System.out.println(thePlanes[0].assignedPilot.rank);
+		        //System.out.println(thePlanes[0].assignedPilot.rank);
 		        
 		        
 		        
@@ -114,6 +115,12 @@ public class MainClass {
 		      e.printStackTrace();
 			}
 		
+		
+		
+		
+		Plane foundPlane = searchForPlane(thePlanes, 4);
+		Pilot pilotOfPlane = foundPlane.assignedPilot;
+		printPilotData(pilotOfPlane);
 		
 		
 		
@@ -150,6 +157,13 @@ public class MainClass {
 		
 		return planeWeFound;
 		
+		
+	}
+	
+	public static void printPilotData(Pilot dataToPrint)
+	{
+		//print pilot data
+		System.out.println(dataToPrint.rank + " " + dataToPrint.first_name + " " + dataToPrint.last_name + " is assigned to this aircraft");
 		
 	}
 	
