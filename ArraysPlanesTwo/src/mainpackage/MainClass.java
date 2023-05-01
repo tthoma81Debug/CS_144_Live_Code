@@ -117,7 +117,8 @@ public class MainClass {
 			}
 		
 		
-		
+		//sort planes
+		sortPlanesByID(thePlanes);
 		
 
 		//if we found the plane
@@ -128,6 +129,8 @@ public class MainClass {
 			//and print his/her data
 			printPilotData(pilotOfPlane);
 		}
+		
+		
 		
 		
 		
@@ -166,6 +169,24 @@ public class MainClass {
 		
 		
 	}
+	
+	//sort array of planes via bubble sort
+	public static void sortPlanesByID(Plane[] arrayOfPlanes)
+	{
+		Plane tempParkingSpot;
+		for(int i = 0; i < (arrayOfPlanes.length-1); i++)
+		{
+			if(arrayOfPlanes[i].planeIDNum > arrayOfPlanes[i+1].planeIDNum) //switch is needed
+			{
+				
+				tempParkingSpot = arrayOfPlanes[i+1]; //move next plane to parking spot
+				arrayOfPlanes[i+1] = arrayOfPlanes[i]; //move current plane to next plane spot	
+				arrayOfPlanes[i] = tempParkingSpot; //move next plane (in temp parking spot) to original position
+				
+			}
+		}
+	}
+	
 	
 	public static void printPilotData(Pilot dataToPrint)
 	{
