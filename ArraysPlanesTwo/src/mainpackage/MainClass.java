@@ -183,8 +183,24 @@ public class MainClass {
 	public static void sortPlanesByID(Plane[] arrayOfPlanes)
 	{
 		Plane tempParkingSpot;
+		
+		boolean started = false;
+		boolean changeOccuredInPass = true;
+		//as long as (while) it aint done
+		//do a pass and repeat until done
+		
+		//its done when all planes with their ids are in numerical order
+		//its in numerical order when we can go across the entire array without moving anything
+		
+		while(changeOccuredInPass == true || started == false)
+		{
+		started = true;
+		changeOccuredInPass = false;
+		//begin pass
 		for(int i = 0; i < (arrayOfPlanes.length-1); i++)
 		{
+			//lets assume we don't need to make a change
+			//done = true;
 			if(arrayOfPlanes[i].planeIDNum > arrayOfPlanes[i+1].planeIDNum) //switch is needed
 			{
 				
@@ -192,7 +208,18 @@ public class MainClass {
 				arrayOfPlanes[i+1] = arrayOfPlanes[i]; //move current plane to next plane spot	
 				arrayOfPlanes[i] = tempParkingSpot; //move next plane (in temp parking spot) to original position
 				
+				//change happened. not done
+				//done = false;
+				changeOccuredInPass = true;
+				
+				
 			}
+			
+			
+		}
+		
+		//end pass
+		
 		}
 	}
 	
