@@ -47,12 +47,8 @@ public class MainClass {
 		//somePlane = new Plane();
 
 		
-		//display ids of all planes	
-		for(int i = 0; i < planeCapacity; i++)
-		{
-			System.out.println("Plane in spot " + i + " has id of " + thePlanes[i].planeIDNum);
-		}
-		
+
+		printAllPlanes(thePlanes);
 		
 		//lets try to find a plane with a specific id
 		Plane planeWeFound = searchForPlane(thePlanes, planeSearchingFor);
@@ -135,8 +131,20 @@ public class MainClass {
 		
 		
 		
+		
+		
+		
+		
 	}
 	
+	public static void printAllPlanes(Plane[] arrayToPrint)
+	{
+		//display ids of all planes	
+		for(int i = 0; i < planeCapacity; i++)
+		{
+			System.out.println("Plane in spot " + i + " has id of " + arrayToPrint[i].planeIDNum);
+		}
+	}
 	
 	//perform linear search and return plane with specific id
 	public static Plane searchForPlane(Plane[] arrayToSearch, int idSearchingFor)
