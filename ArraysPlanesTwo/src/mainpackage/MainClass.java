@@ -113,10 +113,7 @@ public class MainClass {
 			}
 		
 		
-		//sort planes
-		sortPlanesByID(thePlanes);
 		
-
 		//if we found the plane
 		if(planeWeFound.planeIDNum != -1)
 		{
@@ -128,9 +125,13 @@ public class MainClass {
 		
 		
 		
+		//sort planes
+		sortPlanesByID(thePlanes);
 		
-		
-		
+		//print sorted planes
+		System.out.println("----------------Sorting complete-------------------");
+		System.out.println("Array now looks like:");
+		printAllPlanes(thePlanes);
 		
 		
 		
