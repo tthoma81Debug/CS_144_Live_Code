@@ -137,6 +137,8 @@ public class MainClass {
 		System.out.println("Array now looks like:");
 		printAllPlanes(thePlanes);
 		
+		simulateEngagement(thePlanes);
+		
 		
 		
 		
@@ -239,6 +241,9 @@ public class MainClass {
 	{
 		//this will simulate engagement of 1000 adversarial aircraft with 80% success rate
 		
+		AudioTest startAudio = new AudioTest();
+		startAudio.playSound();
+		
 		for(int i = 0; i < allPlanes.length; i++)
 		{
 			int successOrFail;
@@ -257,12 +262,41 @@ public class MainClass {
 			{
 				success = false;
 				System.out.println("Unfortunately, did not win");
+				allPlanes[i].stillExists = false;
 				redScore++;
 			}
 			
 			
 			
 			
+		}
+		
+		
+		for(int i = 0; i < allPlanes.length; i++)
+		{
+			if(allPlanes[i].stillExists == true)
+			{
+				System.out.println(allPlanes[i].assignedPilot.first_name + " with " + "Plane " + allPlanes[i].planeIDNum + " came back safely");
+			}
+			else
+			{
+				System.out.println(allPlanes[i].assignedPilot.first_name + " with " + "Plane " + allPlanes[i].planeIDNum + " has not returned");		
+			}
+		}
+		
+		
+		
+		
+		System.out.println("Blue score: " + blueScore);
+		System.out.println("Red score: " + redScore);
+		
+		if(blueScore > redScore)
+		{
+			System.out.println("Blue Team Wins!");
+		}
+		else
+		{
+			System.out.println("Red team wins!");
 		}
 		
 		

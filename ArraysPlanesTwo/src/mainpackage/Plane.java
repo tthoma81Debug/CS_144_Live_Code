@@ -16,6 +16,8 @@ public class Plane
 	private double price;
 	public int planeIDNum;
 	
+	public boolean stillExists = true;
+	
 	public Ordinance planeArmaments[];
 	
 	public Pilot assignedPilot;
@@ -38,6 +40,8 @@ public class Plane
 		
 		Random generator = new Random();
 		planeIDNum = generator.nextInt(1000);
+		
+		stillExists = true;
 		
 		
 		

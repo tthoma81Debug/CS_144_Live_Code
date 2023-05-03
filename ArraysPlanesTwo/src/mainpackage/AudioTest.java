@@ -51,12 +51,7 @@ public class AudioTest {
          // Play the clip for the second time
          clip.stop();
          
-         
-         File voice = new File("voice.mp3");
-         AudioInputStream audioInputStreamTwo = AudioSystem.getAudioInputStream(voice);
-         Clip clipVoice = AudioSystem.getClip();
-         clipVoice.open(audioInputStreamTwo);
-         clipVoice.start();
+        
          
          
          
