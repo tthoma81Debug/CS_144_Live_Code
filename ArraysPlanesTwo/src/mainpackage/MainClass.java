@@ -7,11 +7,15 @@ import java.io.FileNotFoundException;  // Import this class to handle errors
 
 public class MainClass {
 	
-	
+	//assuming 80 percent probabilty success per engagement
 	public static final int planeCapacity = 1000;
 	public static Plane[] thePlanes = new Plane[planeCapacity]; //makes an array capable of holding 100 planes
 	private static int pilotCounter = 0;
 	private static int planeSearchingFor = 4;
+	private static Random theGenerator = new Random();
+	
+	private static int blueScore = 0;
+	private static int redScore = 0;
 	
 	
 	public static void main(String[] args)
@@ -228,6 +232,41 @@ public class MainClass {
 	{
 		//print pilot data
 		System.out.println(dataToPrint.rank + " " + dataToPrint.first_name + " " + dataToPrint.last_name + " is assigned to this aircraft");
+		
+	}
+	
+	public static void simulateEngagement(Plane[] allPlanes)
+	{
+		//this will simulate engagement of 1000 adversarial aircraft with 80% success rate
+		
+		for(int i = 0; i < allPlanes.length; i++)
+		{
+			int successOrFail;
+			boolean success = false;
+			successOrFail = theGenerator.nextInt(5);
+			System.out.println(allPlanes[i].assignedPilot.first_name + " " + allPlanes[i].assignedPilot.last_name + " in plane " + allPlanes[i].planeIDNum + " Engages enemy aircraft");
+			
+			if(successOrFail != 0)
+			{
+				success = true;
+				System.out.println("And Wins!");
+				blueScore++;
+				
+			}
+			else
+			{
+				success = false;
+				System.out.println("Unfortunately, did not win");
+				redScore++;
+			}
+			
+			
+			
+			
+		}
+		
+		
+		
 		
 	}
 	
